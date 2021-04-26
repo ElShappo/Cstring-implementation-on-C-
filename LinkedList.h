@@ -8,10 +8,7 @@ class LinkedList
 {
 public:
 
-    LinkedList()
-    {
-
-    }
+    LinkedList(){}
 
     LinkedList(T* items, int count)
     {
@@ -78,6 +75,30 @@ public:
             buffer = buffer->next_;
 
         return buffer->data_;
+    }
+
+    class LinkedList<T>* GetSubList(int iStart, int iEnd)
+    {
+        if (iStart < 0 || iEnd < 0 || iStart > size_ || iEnd > size_ || iEnd < iStart)
+            throw LinkedListException("IndexOutOfRange");
+
+        Node* buffer = head_;
+        T data[iEnd-iStart];
+
+        int count = 0;
+
+        while (count < iStart)
+        {
+            buffer = buffer->next_;
+            ++count;
+        }
+        for (int i=0; i<(iEnd-iStart+1); ++i)
+        {
+            data[i] = buffer->data_;
+            buffer = buffer->next_;
+        }
+
+        return new LinkedList(data, iEnd-iStart+1);
     }
 
     T GetFirst()

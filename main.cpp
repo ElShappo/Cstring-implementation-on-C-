@@ -117,6 +117,15 @@ int main()
 
         cout << li.Get(0) << endl;
 
+        LinkedList<int>* subList = copyOfAnother.GetSubList(3,4);
+
+        cout << "Iterating over sublist elements: " << endl << endl;
+
+        for (int i=0; i<2; ++i)
+            cout << subList->Get(i) << endl;
+
+        cout << endl << "end of iteration..." << endl << endl;
+
 
     }
     catch(DynamicArrayException<int> & ex)
