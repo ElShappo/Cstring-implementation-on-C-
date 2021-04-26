@@ -101,6 +101,23 @@ int main()
 
         cout << endl << "end of iteration..." << endl << endl;
 
+        cout << "Insertion attempt" << endl;
+
+        copyOfAnother.Insert(500, 5);
+
+        cout << "Iterating over copyOfAnother elements: " << endl << endl;
+
+        for (int i=0; i<6; ++i)
+            cout << copyOfAnother.Get(i) << endl;
+
+        cout << endl << "end of iteration..." << endl << endl;
+
+        LinkedList<int> li;
+        li.Insert(907, 0);
+
+        cout << li.Get(0) << endl;
+
+
     }
     catch(DynamicArrayException<int> & ex)
     {

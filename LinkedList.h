@@ -35,6 +35,35 @@ public:
             PushBack(list.Get(i));
     }
 
+    void Insert(T data, int index)
+    {
+        if (index < 0 || index > size_)
+            throw LinkedListException("IndexOutOfRange");
+
+        ++size_;
+
+        int count = 0;
+        Node* buffer = head_;
+
+        if (index == 0)
+        {
+            head_ = new Node(data, buffer);
+        }
+        else
+        {
+            while (count < index-1)
+            {
+                buffer = buffer->next_;
+                ++count;
+            }
+            // now buffer holds either head_ or next_ of Node with number n-2 (either head_ or Node with number n-1)
+            cout << buffer->data_ << endl;
+
+            Node* oldNext = buffer->next_;
+            buffer->next_ = new Node(data, oldNext);
+        }
+    }
+
     void PushBack(T data)
     {
         ++size_;
