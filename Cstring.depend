@@ -1,0 +1,40 @@
+# depslib dependency file v1.0
+1619356568 source:c:\users\shaip\onedrive\desktop\cstring\dynamicarrayexception.cpp
+	"DynamicArrayException.h"
+
+1619356568 c:\users\shaip\onedrive\desktop\cstring\dynamicarrayexception.h
+	<exception>
+	<iostream>
+
+1619428662 source:c:\users\shaip\onedrive\desktop\cstring\main.cpp
+	<iostream>
+	"DynamicArray.h"
+	"LinkedList.h"
+
+1619381099 c:\users\shaip\onedrive\desktop\cstring\dynamicarray.h
+	<iostream>
+	"DynamicArrayException.h"
+
+1619428922 c:\users\shaip\onedrive\desktop\cstring\linkedlist.h
+	"LinkedListException.h"
+
+1619424927 c:\users\shaip\onedrive\desktop\cstring\linkedlistexception.h
+
+1619441335 source:c:\users\denis\desktop\cstring\main.cpp
+	<iostream>
+	"DynamicArray.h"
+	"LinkedList.h"
+
+1619438976 c:\users\denis\desktop\cstring\dynamicarray.h
+	<iostream>
+	"DynamicArrayException.h"
+
+1619438976 c:\users\denis\desktop\cstring\dynamicarrayexception.h
+	<exception>
+	<iostream>
+
+1619441148 c:\users\denis\desktop\cstring\linkedlist.h
+	"LinkedListException.h"
+
+1619438976 c:\users\denis\desktop\cstring\linkedlistexception.h
+
