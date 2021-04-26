@@ -64,22 +64,8 @@ public:
         }
     }
 
-    void PushBack(T data)
-    {
-        ++size_;
-
-        if (head_ == nullptr)
-            head_ = new Node(data);
-        else
-        {
-            Node* buffer = head_;
-
-            while (buffer->next_ != nullptr)
-                buffer = buffer->next_;
-
-            buffer->next_ = new Node(data);
-        }
-    }
+    void PushBack(T data) { Insert(data, size_); }
+    void PushFront(T data) { Insert(data, 0); }
 
     T Get(int index)
     {
