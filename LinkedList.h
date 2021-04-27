@@ -77,6 +77,7 @@ public:
         return buffer->data_;
     }
 
+    /*
     class LinkedList<T>* GetSubList(int iStart, int iEnd)
     {
         if (iStart < 0 || iEnd < 0 || iStart > size_ || iEnd > size_ || iEnd < iStart)
@@ -97,8 +98,28 @@ public:
             data[i] = buffer->data_;
             buffer = buffer->next_;
         }
-
         return new LinkedList(data, iEnd-iStart+1);
+    }
+    */
+
+    class LinkedList<T>* GetSubList(int iStart, int iEnd)
+    {
+        int size = iEnd-iStart+1;
+
+        T items[size];
+
+        for (int i=0; i<size; ++i)
+            items[i] = Get(iStart+i);
+
+        return new LinkedList(items, size);
+    }
+
+    class LinkedList<T>* Append(LinkedList<T> list)
+    {
+        class LinkedList<T> newList(this);
+
+        for (int i=0; i<list.GetSize(); ++i)
+            newList.PushBack(list.Get(i));
     }
 
     T GetFirst()
