@@ -1,6 +1,7 @@
 #include <iostream>
 #include "DynamicArray.h"
 #include "LinkedList.h"
+#include "vendor/catch.hpp"
 
 using namespace std;
 
@@ -38,17 +39,84 @@ void ItemsListTest(T* items, int size)
 }
 
 template <typename T>
+void CopyListTest(LinkedList<T> & buffer)
+{
+    LinkedList<T> obj(buffer);
+    PrintData(obj);
+}
+
+template <typename T>
+void InsertTest(LinkedList<T> list, T data, int index)
+{
+    cout << "Initial data: " << endl;
+    PrintData(list);
+
+    cout << "Inserting " << data << " on " << index << "position: " << endl;
+    list.Insert(data, index);
+
+    PrintData(list);
+}
+
+template <typename T>
+void InsertInEmptyListTest(T data)
+{
+    LinkedList<T> list;
+    InsertTest(list, data, 0);
+}
+
+template <typename T>
+void InsertAsPushBackTest(T data, int index)
+{
+    LinkedList<T> list;
+    InsertTest(list, data, list.GetSize() );
+}
+
+template <typename T>
+void InsertAsPushFrontTest(T data, int index)
+{
+    LinkedList<T> list;
+    InsertTest(list, data, 0);
+}
+
+template <typename T>
+void AppendTest(LinkedList<T> list, LinkedList<T> buffer)
+{
+    LinkedList<T> res(*list.Append(buffer));
+}
+
+template <typename T>
 void PrintData(LinkedList<T> obj)
 {
     for (int i=0; i<obj.GetSize(); ++i)
         cout << obj.Get(i) << endl;
 }
 
-
 int main()
 {
     try
     {
+        int size1 = 5;
+        int size2 = 3;
+
+        int buff1[size1] = {1, 2, 3, 4, 5};
+        int buff2[size2] = {6, 7, 8};
+
+        ItemsListTest(buff1, size1);
+        ItemsListTest(buff2, size2);
+
+        LinkedList<int> list1(buff1, size1);
+        LinkedList<int> list2(buff2, size2);
+
+        AppendTest(list1, list2);
+
+
+        // Items
+
+        // AppendTest()
+
+
+
+
         /*
         double arr[4] = {1,3,3,4};
 
@@ -66,6 +134,7 @@ int main()
             cout << dArr.Get(i) << endl;
 
         */
+        /*
         int container[5] = {100, 101, 102, 103, 104};
 
         LinkedList<int> obj;
@@ -126,12 +195,42 @@ int main()
 
         cout << endl << "end of iteration..." << endl << endl;
 
+        int buff1[6] = {7,8,9,10,11,12};
+        LinkedList<int> obj1(buff1, 6);
 
+        LinkedList<int> obj2(*subList);
+        obj2.Append(obj1);
+
+        cout << endl << endl;
+        cout << "--------------" << endl << endl;
+
+        for (int i=0; i<obj2.GetSize(); ++i)
+            cout << obj2.Get(i) << endl;
+        */
+
+        /*
+        int buff[5] = {1,2,3,4,5};
+        LinkedList<int> list(buff, 5);
+
+        cout << "Start" << endl;
+
+        for (int i=0; i<list.GetSize(); ++i)
+            cout << list.Get(i) << endl;
+
+        cout << "End" << endl;
+
+        list.Append(list);
+
+        for (int i=0; i<list.GetSize(); ++i)
+            cout << list.Get(i) << endl;
+        */
     }
     catch(DynamicArrayException<int> & ex)
     {
         cout << ex.what() << endl;
     }
+
+    cout << "Hello!" << endl;
 
     return 0;
 }

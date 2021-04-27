@@ -12,15 +12,19 @@ public:
 
     LinkedList(T* items, int count)
     {
+        if (count < 0)
+            throw LinkedListException("IndexOutOfRange");
+
         for (int i=0; i<count; ++i)
         {
-            cout << "Iteration (" << i << "); size = " << GetSize() << endl;
+            // cout << "Iteration (" << i << "); size = " << GetSize() << endl;
             PushBack(items[i]);
         }
     }
 
     LinkedList(LinkedList<T> & list)
     {
+        // cout << "Copy ctor has been called." << endl;
         /*
         cout << "List size: " << list.GetSize() << endl;
 
@@ -54,7 +58,7 @@ public:
                 ++count;
             }
             // now buffer holds either head_ or next_ of Node with number n-2 (either head_ or Node with number n-1)
-            cout << buffer->data_ << endl;
+            //cout << buffer->data_ << endl;
 
             Node* oldNext = buffer->next_;
             buffer->next_ = new Node(data, oldNext);
@@ -77,31 +81,6 @@ public:
         return buffer->data_;
     }
 
-    /*
-    class LinkedList<T>* GetSubList(int iStart, int iEnd)
-    {
-        if (iStart < 0 || iEnd < 0 || iStart > size_ || iEnd > size_ || iEnd < iStart)
-            throw LinkedListException("IndexOutOfRange");
-
-        Node* buffer = head_;
-        T data[iEnd-iStart];
-
-        int count = 0;
-
-        while (count < iStart)
-        {
-            buffer = buffer->next_;
-            ++count;
-        }
-        for (int i=0; i<(iEnd-iStart+1); ++i)
-        {
-            data[i] = buffer->data_;
-            buffer = buffer->next_;
-        }
-        return new LinkedList(data, iEnd-iStart+1);
-    }
-    */
-
     class LinkedList<T>* GetSubList(int iStart, int iEnd)
     {
         int size = iEnd-iStart+1;
@@ -116,10 +95,15 @@ public:
 
     class LinkedList<T>* Append(LinkedList<T> list)
     {
-        class LinkedList<T> newList(this);
+        class LinkedList<T>* newList = new LinkedList(*this);
 
         for (int i=0; i<list.GetSize(); ++i)
-            newList.PushBack(list.Get(i));
+        {
+            //cout << list.Get(i) << endl;
+            newList->PushBack(list.Get(i));
+        }
+
+        return newList;
     }
 
     T GetFirst()
