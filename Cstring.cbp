@@ -36,7 +36,9 @@
 		<Unit filename="DynamicArrayException.h" />
 		<Unit filename="LinkedList.h" />
 		<Unit filename="LinkedListException.h" />
+		<Unit filename="Sequence.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="vendor/catch.hpp" />
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>

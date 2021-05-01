@@ -20,7 +20,7 @@
 
 1619424927 c:\users\shaip\onedrive\desktop\cstring\linkedlistexception.h
 
-1619523795 source:c:\users\denis\desktop\cstring\main.cpp
+1619525342 source:c:\users\denis\desktop\cstring\main.cpp
 	<iostream>
 	"DynamicArray.h"
 	"LinkedList.h"
@@ -330,4 +330,7 @@
 	<ctime>
 	<algorithm>
 	<cassert>
+
+1619857958 source:c:\users\denis\desktop\cstring\main-test.cpp
+	"vendor/catch.hpp"
 
