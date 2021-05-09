@@ -16,7 +16,7 @@ public:
     DynamicArray(T* items, size_t count)
     {
         Resize(count);
-        len_ = size_; // in this case lenght equals to size
+        len_ = size_; // in this case length equals to size
 
         for (size_t i=0; i<len_; ++i)
             this->arr_[i] = items[i];

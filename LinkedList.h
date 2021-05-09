@@ -1,5 +1,5 @@
-#ifndef LINKED_LIST
-#define LINKED_LIST
+#ifndef LINKED_LIST_H
+#define LINKED_LIST_H
 
 #include "LinkedListException.h"
 
@@ -208,4 +208,4 @@ LinkedList(T* items, int count)
     }
 */
 
-#endif // LINKED_LIST
+#endif // LINKED_LIST_H

@@ -7,7 +7,7 @@
 TEST_CASE("1st test")
 {
     CHECK(1 == 1);
-    CHECK_NO_THROWS()
+    //CHECK_NOTHROW();
 }
 
 TEST_CASE("2nd test")

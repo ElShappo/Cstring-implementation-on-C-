@@ -11,7 +11,11 @@ private:
     DynamicArray<T> array_;
     LinkedList<T> list_;
 
+
+
 };
+
+
 
 
 #endif // SEQUENCE_H
