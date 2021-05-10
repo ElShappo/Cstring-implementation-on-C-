@@ -36,9 +36,30 @@ public:
             PushBack(list.Get(i));
     }
 
-    T & operator[](int pos)
+    T & operator[](int index)
     {
-        return Get(pos);
+        if (index < 0 || index >= len_)
+            throw LinkedListException<T>("IndexOutOfRange");
+
+        int count = 0;
+        Node* buffer = head_;
+
+        if (index == 0)
+        {
+            return buffer->data_;
+        }
+        else
+        {
+            while (count < index)
+            {
+                buffer = buffer->next_;
+                ++count;
+            }
+            // now buffer holds either head_ or next_ of Node with number n-2 (either head_ or Node with number n-1)
+            //cout << buffer->data_ << endl;
+
+            return buffer->data_;
+        }
     }
 
     void Insert(T data, int index)

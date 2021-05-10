@@ -120,6 +120,7 @@ int main()
             test.PushBack(i);
             //CHECK(test.Get(i) == i);
         }
+        cout << test[2] << endl;
 
         //CHECK_THROWS(test.Get(7));
         //CHECK_THROWS(test.Get(5678));
