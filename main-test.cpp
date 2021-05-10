@@ -200,6 +200,31 @@ TEST_CASE("Testing resistance")
         CHECK_THROWS(test.PopBack());
 }
 
+TEST_CASE("Testing indexing operator")
+{
+    DynamicArray<double> test;
+    int size = 15;
+
+    for (int i=0; i<size; ++i)
+        test.PushBack(i);
+
+    test.PushBack(5687);
+    test.PushBack(11567);
+
+    test.PopBack();
+    test.PushBack(11567);
+    test.PopBack();
+
+    for (int i=0; i<size; ++i)
+        CHECK(test[i] == i);
+
+    CHECK(test[size] == 5687);
+    CHECK_THROWS(test[size+1]);
+
+    CHECK(test.GetLen() == size+1);
+    CHECK(test.GetCapacity() == size+2);
+}
+
 /** -------------------- **/
 
 TEST_CASE("Testing GET-method [LinkedList]")

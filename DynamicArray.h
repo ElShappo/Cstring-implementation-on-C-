@@ -43,6 +43,14 @@ public:
             arr_[i] = DynamicArray.Get(i);
     }
 
+    T & operator[](int index)
+    {
+        if (index >= len_)
+            throw DynamicArrayException<T>("IndexOutOfRange");
+
+        return arr_[index];
+    }
+
     ~DynamicArray()
     {
         delete[] arr_;
