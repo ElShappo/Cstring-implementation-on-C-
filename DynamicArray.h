@@ -135,6 +135,10 @@ public:
     {
         Insert(data, len_);
     }
+    void PushFront(T data)
+    {
+        Insert(data, 0);
+    }
 
     T PopBack()
     {
