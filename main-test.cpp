@@ -6,7 +6,7 @@
 
 TEST_CASE("Testing GET-method")
 {
-    size_t size = 4;
+    int size = 4;
     double buffer[size] = {1, 567, 1114, 7985};
     DynamicArray<double> test(buffer, size);
 
@@ -34,7 +34,7 @@ TEST_CASE("Testing GET-method")
 
 TEST_CASE("Testing PushBack-method")
 {
-    size_t size = 4;
+    int size = 4;
     double buffer[size] = {1, 567, 1114, 7985};
     DynamicArray<double> test(buffer, size);
 
@@ -58,7 +58,7 @@ TEST_CASE("Testing PushBack-method")
 
 TEST_CASE("Testing Insert-method (1)")
 {
-    size_t size = 4;
+    int size = 4;
     double buffer[size] = {-1, 567, 1114, 7985};
     DynamicArray<double> test(buffer, size);
 
@@ -77,7 +77,7 @@ TEST_CASE("Testing Insert-method (1)")
 
 TEST_CASE("Testing PushFront-method (1)")
 {
-    size_t size = 4;
+    int size = 4;
     double buffer[size] = {-1, 567, 1114, 7985};
     DynamicArray<double> test(buffer, size);
 
@@ -110,16 +110,29 @@ TEST_CASE("Testing PushFront-method (2)")
         CHECK(test.Get(0) == i);
     }
 
-    //CHECK(test.GetLen() == 10);
-    //CHECK(test.GetCapacity() == 10);
+    CHECK(test.GetLen() == 10);
+    CHECK(test.GetCapacity() == 10);
 
-    //for (int i=9; i>1; ++i)
-        //CHECK(test.Get(i) == i);
+    for (int i=0; i<10; ++i)
+    {
+        test.PopBack();
 
-    //CHECK(test.Get(0) == 1);
-    //CHECK(test.Get(1) == 567);
-    //CHECK(test.Get(2) == 1114);
-    //CHECK(test.Get(3) == 7985);
+        CHECK(test.GetLen() == 9-i);
+        CHECK(test.GetCapacity() == 10);
+    }
+}
+
+TEST_CASE("Testing SET-method (2)")
+{
+    DynamicArray<double> test;
+
+    for (int i=0; i<10; ++i)
+    {
+        test.Insert(i, i);
+        CHECK (test.Get(i) == i);
+    }
+
+    CHECK_THROWS(test.Set(404, -1));
 }
 
 TEST_CASE("Testing resistance")

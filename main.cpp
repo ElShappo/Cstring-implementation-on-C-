@@ -96,8 +96,7 @@ int main()
 {
     try
     {
-        size_t size = 4;
-
+        /*
         DynamicArray<double> test;
         test.PushFront(1);
         test.PushFront(2);
@@ -107,8 +106,21 @@ int main()
             test.PushFront(i);
         }*/
 
+        /*
         for (int i=0; i<2; ++i)
             cout << test.Get(i) << endl;
+        */
+
+        int size = 4;
+        double buffer[size] = {-1, 567, 1114, 7985};
+        DynamicArray<double> test(buffer, size);
+
+        test.Insert(404, 2);
+
+        for (int i=0; i<5; ++i)
+        {
+            cout << test.Get(i) << endl;
+        }
 
 
         /*

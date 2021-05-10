@@ -15,17 +15,22 @@ public:
 
     DynamicArray() {}
 
-    DynamicArray(T* items, size_t len)
+    DynamicArray(T* items, int len)
     {
+        if (len < 0 || (len > 0 && items == NULL))
+            throw DynamicArrayException<T>("OutOfRange");
+
         Reserve(len);
         len_ = capacity_; // in this case length equals to size
 
-        for (size_t i=0; i<len_; ++i)
+        for (int i=0; i<len_; ++i)
             this->arr_[i] = items[i];
     }
 
-    DynamicArray(size_t capacity)
+    DynamicArray(int capacity)
     {
+        if (capacity < 0)
+            throw DynamicArrayException("OutOfRange");
         Reserve(capacity);
     }
 
@@ -34,7 +39,7 @@ public:
         Reserve(DynamicArray.GetCapacity());
         len_ = DynamicArray.GetLen();
 
-        for (size_t i=0; i<len_; ++i)
+        for (int i=0; i<len_; ++i)
             arr_[i] = DynamicArray.Get(i);
     }
 
@@ -46,9 +51,9 @@ public:
     // ----------------------
 
 
-    T Get(size_t index)
+    T Get(int index)
     {
-        if (index >= len_)
+        if (index >= len_ || index < 0)
         {
             cout << index << " > " << len_ << endl;
             throw DynamicArrayException<T>("IndexOutOfRange");
@@ -66,9 +71,9 @@ public:
         return len_;
     }
 
-    void Set(size_t index, T value)
+    void Set(T value, int index)
     {
-        if (index > len_-1)
+        if (index > len_-1 || index < 0)
         {
             cout << index << " > " << len_ << endl;
             throw DynamicArrayException<T>("IndexOutOfRange");
@@ -76,10 +81,13 @@ public:
         arr_[index] = value;
     }
 
-    void Reserve(size_t capacity)
+    void Reserve(int capacity)
     // when the object is uninitialized, whole new chunk of memory is allocated
     // otherwise already existing chunk is changed
     {
+        if (capacity < 0)
+            throw DynamicArrayException<T>("OutOfRange");
+
         if (arr_ == NULL)
             arr_ = (T*)realloc(NULL, sizeof(T)*capacity);
         else
@@ -96,11 +104,11 @@ public:
         //capacity_ = newSize;
     }
 
-    void Resize(size_t len)
+    void Resize(int len)
     // pretty much the same as PopBack
     // this method does not allow to increase the length
     {
-        if (len_ < len)
+        if (len_ < len || len < 0)
             throw DynamicArrayException<T>("IndexOutOfRange");
         else
             len_ = len;
@@ -109,14 +117,17 @@ public:
             PopBack();
     }
 
-    void Swap(size_t pos1, size_t pos2)
+    void Swap(int pos1, int pos2)
     {
+        if (pos1 < 0 || pos2 < 0)
+            throw DynamicArrayException("OutOfRange");
+
         swap(arr_[pos1], arr_[pos2]);
     }
 
     void Insert(T data, int pos)
     {
-        if (pos > len_)
+        if (pos > len_ || pos < 0)
         {
             cout << pos << " > " << len_ << endl;
             throw DynamicArrayException<T>("IndexOutOfRange");
@@ -130,7 +141,7 @@ public:
         ++len_;
 
         for (int i=len_-2; i>=pos; --i)
-            Set(i+1, Get(i));
+            Set(Get(i), i+1);
 
         arr_[pos] = data;
 
@@ -160,7 +171,7 @@ public:
         }
     }
 
-    T Shrink_to_fit(size_t delta = 1)
+    T Shrink_to_fit(int delta = 1)
     {
         if (abs((int)capacity_-(int)len_) > delta)
             capacity_ = len_;
