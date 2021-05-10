@@ -89,15 +89,16 @@ public:
     }
 
     void Resize(size_t len)
-    // it is not allowed to enlarge array this way
-    // len can only be <= than the current length
+    // pretty much the same as PopBack
+    // this method does not allow to increase the length
     {
         if (len_ < len)
             throw DynamicArrayException<T>("IndexOutOfRange");
         else
             len_ = len;
 
-
+        for (int i=0; i<len_-len; ++i)
+            PopBack();
     }
 
     void Swap(size_t pos1, size_t pos2)
