@@ -105,11 +105,6 @@ public:
 
         if (capacity_ < len_)
             len_ = capacity_;
-
-        //if (newSize <= capacity_)
-            //len_ = newSize;
-
-        //capacity_ = newSize;
     }
 
     void Resize(int len)

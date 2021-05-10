@@ -16,22 +16,11 @@ public:
             throw LinkedListException<T>("IndexOutOfRange");
 
         for (int i=0; i<count; ++i)
-        {
-            // cout << "Iteration (" << i << "); size = " << GetLen() << endl;
             PushBack(items[i]);
-        }
     }
 
     LinkedList(LinkedList<T> & list)
     {
-        // cout << "Copy ctor has been called." << endl;
-        /*
-        cout << "List size: " << list.GetLen() << endl;
-
-        for (int i=0; i<list.GetLen(); ++i)
-            cout << list.Get(i) << endl;
-        */
-
         for (int i=0; i<list.GetLen(); ++i)
             PushBack(list.Get(i));
     }
@@ -55,9 +44,6 @@ public:
                 buffer = buffer->next_;
                 ++count;
             }
-            // now buffer holds either head_ or next_ of Node with number n-2 (either head_ or Node with number n-1)
-            //cout << buffer->data_ << endl;
-
             return buffer->data_;
         }
     }
@@ -107,11 +93,6 @@ public:
             buffer = buffer->next_;
             ++count;
         }
-
-        //if (buffer == NULL)
-            //throw LinkedListException<T>("Can't pop empty list");
-
-        //cout << buffer->data_ << endl;
 
         T buff = buffer->data_;
         free(buffer->next_);
@@ -167,10 +148,7 @@ public:
         class LinkedList<T>* newList = new LinkedList(*this);
 
         for (int i=0; i<list.GetLen(); ++i)
-        {
-            //cout << list.Get(i) << endl;
             newList->PushBack(list.Get(i));
-        }
 
         return newList;
     }
