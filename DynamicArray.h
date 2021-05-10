@@ -63,7 +63,7 @@ public:
 
     void Set(size_t index, T value)
     {
-        if (index >= capacity_)
+        if (index > len_-1)
             throw DynamicArrayException<T>("IndexOutOfRange");
         arr_[index] = value;
     }
