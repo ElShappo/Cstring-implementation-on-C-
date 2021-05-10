@@ -133,6 +133,11 @@ TEST_CASE("Testing SET-method (2)")
     }
 
     CHECK_THROWS(test.Set(404, -1));
+    CHECK_THROWS(test.Set(404, 10));
+
+    test.Set(798, 7);
+
+    CHECK(test.Get(7) == 798);
 }
 
 TEST_CASE("Testing resistance")
