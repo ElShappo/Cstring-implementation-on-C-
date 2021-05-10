@@ -36,6 +36,11 @@ public:
             PushBack(list.Get(i));
     }
 
+    T & operator[](int pos)
+    {
+        return Get(pos);
+    }
+
     void Insert(T data, int index)
     {
         if (index < 0 || index > len_)
@@ -123,6 +128,9 @@ public:
 
     class LinkedList<T>* GetSubList(int iStart, int iEnd)
     {
+        if (iStart < 0 || iEnd < 0 || (iStart > iEnd))
+            throw LinkedListException<T>("IndexOutOfRange");
+
         int size = iEnd-iStart+1;
 
         T items[size];
@@ -156,7 +164,7 @@ public:
         return Get(len_-1);
     }
 
-    size_t GetLen()
+    int GetLen()
     {
         return len_;
     }
@@ -180,7 +188,7 @@ private:
     };
 
     Node* head_ = nullptr;
-    size_t len_ = 0;
+    int len_ = 0;
 
 };
 
