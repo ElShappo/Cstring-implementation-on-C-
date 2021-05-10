@@ -1,6 +1,8 @@
 #include <iostream>
 #include "DynamicArray.h"
 #include "LinkedList.h"
+
+#include "ListSequence.h"
 #include "Sequence.h"
 #include "vendor/catch.hpp"
 
@@ -96,6 +98,11 @@ int main()
 {
     try
     {
+        int size = 4;
+        double buffer[size] = {-1, 567, 1114, 7985};
+        ListSequence<double> test(buffer, size);
+
+        /*
         int size = 4;
         double buffer[size] = {1, 567, 1114, 7985};
         LinkedList<double> test(buffer, size);

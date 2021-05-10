@@ -5,24 +5,24 @@ template<class T>
 class Sequence
 {
 public:
-    virtual T & operator[](size_t pos) = 0;
+
+    Sequence() {}
+
+    virtual T & operator[](int index) = 0;
     // == overload
     // assign overload
 
-    virtual T capacity() = 0;
-    virtual T len() = 0;
+    virtual int length() = 0;
 
-    virtual void push_back() = 0;
+    virtual void push_back(T data) = 0;
+    virtual void push_front(T data) = 0;
     virtual T pop_back() = 0;
-    virtual T append() = 0;
-    //virtual void set() = 0;
+    virtual void get(int index) = 0;
+    virtual void set(T data, int index) = 0;
+    virtual void insert(T data, int index) = 0;
 
-    virtual void reserve() = 0;
-    virtual void resize() = 0;
-
-
-
-
+    // virtual void reserve() = 0;
+    //virtual void resize() = 0;
 };
 
 
