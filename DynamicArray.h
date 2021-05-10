@@ -22,14 +22,14 @@ public:
             this->arr_[i] = items[i];
     }
 
-    DynamicArray(size_t size)
+    DynamicArray(size_t capacity)
     {
-        Reserve(size);
+        Reserve(capacity);
     }
 
     DynamicArray(DynamicArray<T> & DynamicArray)
     {
-        Reserve(DynamicArray.GetSize());
+        Reserve(DynamicArray.GetCapacity());
         len_ = DynamicArray.GetLen();
 
         for (size_t i=0; i<len_; ++i)
@@ -51,7 +51,7 @@ public:
         return arr_[index];
     }
 
-    int GetSize()
+    int GetCapacity()
     {
         return capacity_;
     }

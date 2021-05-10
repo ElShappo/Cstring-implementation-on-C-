@@ -126,17 +126,17 @@ int main()
 
         dArr.PushBack(56875);
         dArr.PushBack(346531111);
-        //dArr.PopBack();
-        //dArr.PopBack();
+        // dArr.PopBack();
+        // dArr.PopBack();
 
         DynamicArray newArr(dArr);
 
         newArr.Set(1, 300);
 
-        for (int i=0; i<newArr.GetSize(); ++i)
+        for (int i=0; i<newArr.GetLen(); ++i)
             cout << newArr.Get(i) << endl;
 
-        for (int i=0; i<dArr.GetSize(); ++i)
+        for (int i=0; i<dArr.GetLen(); ++i)
             cout << dArr.Get(i) << endl;
 
         /*
