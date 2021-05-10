@@ -13,9 +13,9 @@ public:
 
     // --------------- CTORS
 
-    DynamicArray(T* items, size_t count)
+    DynamicArray(T* items, size_t len)
     {
-        Reserve(count);
+        Reserve(len);
         len_ = capacity_; // in this case length equals to size
 
         for (size_t i=0; i<len_; ++i)
