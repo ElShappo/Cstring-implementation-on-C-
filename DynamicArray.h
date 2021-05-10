@@ -13,6 +13,8 @@ public:
 
     // --------------- CTORS
 
+    DynamicArray() {}
+
     DynamicArray(T* items, size_t len)
     {
         Reserve(len);
@@ -47,7 +49,10 @@ public:
     T Get(size_t index)
     {
         if (index >= len_)
+        {
+            cout << index << " > " << len_ << endl;
             throw DynamicArrayException<T>("IndexOutOfRange");
+        }
         return arr_[index];
     }
 
@@ -64,7 +69,10 @@ public:
     void Set(size_t index, T value)
     {
         if (index > len_-1)
+        {
+            cout << index << " > " << len_ << endl;
             throw DynamicArrayException<T>("IndexOutOfRange");
+        }
         arr_[index] = value;
     }
 
@@ -106,26 +114,25 @@ public:
         swap(arr_[pos1], arr_[pos2]);
     }
 
-    void Insert(T data, size_t pos)
+    void Insert(T data, int pos)
     {
         if (pos > len_)
+        {
+            cout << pos << " > " << len_ << endl;
             throw DynamicArrayException<T>("IndexOutOfRange");
+        }
 
         if (arr_ == NULL)
             arr_ = (T*)realloc(NULL, sizeof(T)*(len_+1));
         else
             arr_ = (T*)realloc(arr_, sizeof(T)*(len_+1));
 
-        for (int i=pos+1; i<len_+1; ++i)
-        {
-            T buffer = Get(i);
-            Set(i, Get(i-1));
-            Set(i+1, buffer);
-        }
+        ++len_;
+
+        for (int i=len_-2; i>=pos; --i)
+            Set(i+1, Get(i));
 
         arr_[pos] = data;
-
-        ++len_;
 
         if (capacity_ < len_)
             capacity_ = len_;
@@ -162,8 +169,8 @@ public:
 private:
 
     T* arr_ = NULL;
-    size_t capacity_ = 0;
-    size_t len_ = 0;
+    int capacity_ = 0;
+    int len_ = 0;
 };
 
 #endif // DYNAMIC_ARRAY_H

@@ -96,6 +96,22 @@ int main()
 {
     try
     {
+        size_t size = 4;
+
+        DynamicArray<double> test;
+        test.PushFront(1);
+        test.PushFront(2);
+
+        /*for (int i=0; i<10; ++i)
+        {
+            test.PushFront(i);
+        }*/
+
+        for (int i=0; i<2; ++i)
+            cout << test.Get(i) << endl;
+
+
+        /*
         int size1 = 5;
         int size2 = 3;
 
@@ -234,8 +250,6 @@ int main()
     {
         cout << ex.what() << endl;
     }
-
-    cout << "Hello!" << endl;
 
     return 0;
 }

@@ -32,7 +32,7 @@ TEST_CASE("Testing GET-method")
     CHECK_THROWS(test.Get(5678));
 }
 
-TEST_CASE("Testing PushBack method")
+TEST_CASE("Testing PushBack-method")
 {
     size_t size = 4;
     double buffer[size] = {1, 567, 1114, 7985};
@@ -56,8 +56,76 @@ TEST_CASE("Testing PushBack method")
     CHECK_THROWS(test.Get(5678));
 }
 
-TEST_CASE("2nd test")
+TEST_CASE("Testing Insert-method (1)")
 {
+    size_t size = 4;
+    double buffer[size] = {-1, 567, 1114, 7985};
+    DynamicArray<double> test(buffer, size);
 
-    CHECK("1" == "1");
+    CHECK_THROWS(test.Insert(404, 5));
+
+    test.Insert(404, 2);
+
+    CHECK(test.Get(0) == -1);
+    CHECK(test.Get(1) == 567);
+    CHECK(test.Get(2) == 404);
+    CHECK(test.Get(3) == 1114);
+    CHECK(test.Get(4) == 7985);
+
+
+}
+
+TEST_CASE("Testing PushFront-method (1)")
+{
+    size_t size = 4;
+    double buffer[size] = {-1, 567, 1114, 7985};
+    DynamicArray<double> test(buffer, size);
+
+    for (int i=0; i<10; ++i)
+        test.PushFront(i);
+
+    CHECK(test.GetLen() == 14);
+    CHECK(test.GetCapacity() == 14);
+
+    for (int i=0; i<10; i++)
+        CHECK(test.Get(i) == 9-i);
+
+    CHECK(test.Get(10) == -1);
+    CHECK(test.Get(11) == 567);
+    CHECK(test.Get(12) == 1114);
+    CHECK(test.Get(13) == 7985);
+
+    CHECK_THROWS(test.Get(166) );
+}
+
+TEST_CASE("Testing PushFront-method (2)")
+{
+    DynamicArray<double> test;
+
+    CHECK_THROWS(test.PopBack());
+
+    for (int i=0; i<10; ++i)
+    {
+        test.PushFront(i);
+        CHECK(test.Get(0) == i);
+    }
+
+    //CHECK(test.GetLen() == 10);
+    //CHECK(test.GetCapacity() == 10);
+
+    //for (int i=9; i>1; ++i)
+        //CHECK(test.Get(i) == i);
+
+    //CHECK(test.Get(0) == 1);
+    //CHECK(test.Get(1) == 567);
+    //CHECK(test.Get(2) == 1114);
+    //CHECK(test.Get(3) == 7985);
+}
+
+TEST_CASE("Testing resistance")
+{
+    DynamicArray<double> test;
+
+    for (int i=0; i<10; ++i)
+        CHECK_THROWS(test.PopBack());
 }
