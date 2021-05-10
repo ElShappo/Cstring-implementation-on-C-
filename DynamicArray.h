@@ -103,34 +103,12 @@ public:
     void Swap(size_t pos1, size_t pos2)
     {
         swap(arr_[pos1], arr_[pos2]);
-
     }
 
     void Insert(T data, size_t pos)
     {
         if (pos > len_)
             throw DynamicArrayException<T>("IndexOutOfRange");
-
-            /*
-        T newArr[len_+1];
-
-        for (int i=0; i<pos; ++i)
-            newArr[i] = arr_[i];
-
-        newArr[pos] = data;
-
-        for (int i=pos+1; i<len_+1; ++i)
-            newArr[i] = arr_[i-1];
-
-        free(arr_);
-        arr_ = newArr;
-
-        ++len_;
-
-        if (capacity_ < len_)
-            capacity_ = len_;
-
-        */
 
         if (arr_ == NULL)
             arr_ = (T*)realloc(NULL, sizeof(T)*(len_+1));
@@ -150,28 +128,6 @@ public:
 
         if (capacity_ < len_)
             capacity_ = len_;
-
-
-        /*
-        DynamicArray* temp = new DynamicArray(len_+1);
-
-        for (int i=0; i<pos; ++i)
-            temp->Set(i, Get(i));
-
-        temp->Set(pos, data);
-
-        for (int i=pos+1; i<len_+1; ++i)
-            temp->Set(i, Get(i-1));
-
-        free(arr_);
-        arr_ = temp->arr_;
-
-        ++len_;
-
-        if (capacity_ < len_)
-            capacity_ = len_;
-
-        */
     }
 
     void PushBack(T data)
