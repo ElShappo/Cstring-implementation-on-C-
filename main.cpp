@@ -1,6 +1,7 @@
 #include <iostream>
 #include "DynamicArray.h"
 #include "LinkedList.h"
+#include "Sequence.h"
 #include "vendor/catch.hpp"
 
 using namespace std;
@@ -117,23 +118,28 @@ int main()
 
 
 
-        /*
+
         double arr[4] = {1,3,3,4};
 
         DynamicArray<double> dArr(arr, 4);
-        dArr.Resize(2);
+        //dArr.Reserve(2);
+
+        dArr.PushBack(56875);
+        dArr.PushBack(346531111);
+        dArr.PopBack();
+        dArr.PopBack();
 
         DynamicArray newArr(dArr);
 
         newArr.Set(1, 300);
 
-        for (int i=0; i<newArr.GetLen(); ++i)
+        for (int i=0; i<newArr.GetSize(); ++i)
             cout << newArr.Get(i) << endl;
 
-        for (int i=0; i<dArr.GetLen(); ++i)
+        for (int i=0; i<dArr.GetSize(); ++i)
             cout << dArr.Get(i) << endl;
 
-        */
+
         /*
         int container[5] = {100, 101, 102, 103, 104};
 

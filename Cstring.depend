@@ -631,7 +631,7 @@
 	<algorithm>
 	<cassert>
 
-1620568466 c:\users\shaip\onedrive\desktop\cstring-implementation-on-c-\dynamicarray.h
+1620630223 c:\users\shaip\onedrive\desktop\cstring-implementation-on-c-\dynamicarray.h
 	<iostream>
 	"DynamicArrayException.h"
 
@@ -644,9 +644,12 @@
 
 1620567125 c:\users\shaip\onedrive\desktop\cstring-implementation-on-c-\linkedlistexception.h
 
-1620567125 source:c:\users\shaip\onedrive\desktop\cstring-implementation-on-c-\main.cpp
+1620629909 source:c:\users\shaip\onedrive\desktop\cstring-implementation-on-c-\main.cpp
 	<iostream>
 	"DynamicArray.h"
 	"LinkedList.h"
+	"Sequence.h"
 	"vendor/catch.hpp"
+
+1620579481 c:\users\shaip\onedrive\desktop\cstring-implementation-on-c-\sequence.h
 

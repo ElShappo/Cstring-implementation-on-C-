@@ -2,9 +2,10 @@
 #define ARRAY_SEQUENCE_H
 
 #include "DynamicArray.h"
+#include "Sequence.h"
 
 template <class T>
-class ArraySequence
+class ArraySequence : public Sequence
 {
 private:
     DynamicArray array_;
@@ -14,9 +15,9 @@ public:
     ArraySequence(T* items, size_t count)
     {
         array_.Resize(count);
-        array_.len_ = array_.size_; // in this case length equals to size
+        array_.capacity_ = array_.capacity_; // in this case length equals to size
 
-        for (size_t i=0; i<array_.len_; ++i)
+        for (size_t i=0; i<array_.capacity_; ++i)
             this->array_.arr_[i] = array_.items[i];
     }
 
@@ -27,21 +28,36 @@ public:
 
     ArraySequence(ArraySequence<T> & ArraySequence)
     {
-        Resize(DynamicArray.GetSize());
-        len_ = DynamicArray.GetLen();
+        array_.Resize(array_.GetSize());
+        array_.capacity_ = array_.GetLen();
 
-        for (size_t i=0; i<len_; ++i)
-            arr_[i] = DynamicArray.Get(i);
+        for (size_t i=0; i<array_.capacity_; ++i)
+            arr_[i] = array_.Get(i);
     }
 
-    ~DynamicArray()
+    T & operator[](size_t pos)
     {
-        delete[] arr_;
+        return array_.Get(pos);
     }
 
-    T at(size_t pos)
+    T capacity()
     {
-        return array_.Get()
+        return array_.GetCapacity();
+    }
+
+    T size()
+    {
+        return array_.GetSize();
+    }
+
+    void push_back(T data)
+    {
+        array_.
+    }
+
+    T pop_back()
+    {
+
     }
 
 };
