@@ -13,7 +13,7 @@ public:
     LinkedList(T* items, int count)
     {
         if (count < 0)
-            throw LinkedListException("IndexOutOfRange");
+            throw LinkedListException<T>("IndexOutOfRange");
 
         for (int i=0; i<count; ++i)
         {
@@ -39,7 +39,7 @@ public:
     void Insert(T data, int index)
     {
         if (index < 0 || index > len_)
-            throw LinkedListException("IndexOutOfRange");
+            throw LinkedListException<T>("IndexOutOfRange");
 
         ++len_;
 
@@ -68,10 +68,37 @@ public:
     void PushBack(T data) { Insert(data, len_); }
     void PushFront(T data) { Insert(data, 0); }
 
+    T PopBack()
+    {
+        if (len_ == 0 || head_ == NULL)
+            throw LinkedListException<T>("Can't pop empty list");
+
+        int count = 0;
+        Node* buffer = head_;
+
+        while (count < len_-1)
+        {
+            buffer = buffer->next_;
+            ++count;
+        }
+
+        //if (buffer == NULL)
+            //throw LinkedListException<T>("Can't pop empty list");
+
+        //cout << buffer->data_ << endl;
+
+        T buff = buffer->data_;
+        free(buffer->next_);
+        buffer->next_ = NULL;
+        --len_;
+
+        return buff;
+    }
+
     T Get(int index)
     {
         if (index < 0 || index >= len_)
-            throw LinkedListException("IndexOutOfRange");
+            throw LinkedListException<T>("IndexOutOfRange");
 
         Node* buffer = head_;
 
@@ -79,6 +106,19 @@ public:
             buffer = buffer->next_;
 
         return buffer->data_;
+    }
+
+    void Set(T data, int index)
+    {
+        if (index < 0 || index >= len_)
+            throw LinkedListException<T>("IndexOutOfRange");
+
+        Node* buffer = head_;
+
+        for (int i=0; i<index; ++i)
+            buffer = buffer->next_;
+
+        buffer->data_ = data;
     }
 
     class LinkedList<T>* GetSubList(int iStart, int iEnd)

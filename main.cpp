@@ -96,6 +96,35 @@ int main()
 {
     try
     {
+        int size = 4;
+        double buffer[size] = {1, 567, 1114, 7985};
+        LinkedList<double> test(buffer, size);
+
+        for (int i=0; i<test.GetLen(); ++i)
+            cout << test.Get(i) << endl;
+
+        for (int i=0; i<size; ++i)
+        {
+            // cout << "Hello!" << endl;
+            double pop = test.PopBack();
+            cout << "Popped data: " << pop << endl;
+        }
+
+        //CHECK(test.GetLen() == 0);
+        // CHECK(test.GetCapacity() == 4);
+
+        //CHECK_THROWS(test.PopBack());
+
+        for (int i=0; i<7; ++i)
+        {
+            test.PushBack(i);
+            //CHECK(test.Get(i) == i);
+        }
+
+        //CHECK_THROWS(test.Get(7));
+        //CHECK_THROWS(test.Get(5678));
+
+
         /*
         DynamicArray<double> test;
         test.PushFront(1);
@@ -111,6 +140,7 @@ int main()
             cout << test.Get(i) << endl;
         */
 
+        /*
         int size = 4;
         double buffer[size] = {-1, 567, 1114, 7985};
         DynamicArray<double> test(buffer, size);
@@ -257,6 +287,8 @@ int main()
         for (int i=0; i<list.GetSize(); ++i)
             cout << list.Get(i) << endl;
         */
+
+
     }
     catch(DynamicArrayException<int> & ex)
     {

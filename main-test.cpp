@@ -230,7 +230,7 @@ TEST_CASE("Testing GET-method [LinkedList]")
     CHECK_THROWS(test.Get(5678));
 }
 
-TEST_CASE("Testing PushBack-method")
+TEST_CASE("Testing PushBack-method [LinkedList]")
 {
     int size = 4;
     double buffer[size] = {1, 567, 1114, 7985};
@@ -254,7 +254,7 @@ TEST_CASE("Testing PushBack-method")
     CHECK_THROWS(test.Get(5678));
 }
 
-TEST_CASE("Testing Insert-method (1)")
+TEST_CASE("Testing Insert-method (1) [LinkedList]")
 {
     int size = 4;
     double buffer[size] = {-1, 567, 1114, 7985};
@@ -273,7 +273,7 @@ TEST_CASE("Testing Insert-method (1)")
 
 }
 
-TEST_CASE("Testing PushFront-method (1)")
+TEST_CASE("Testing PushFront-method (1) [LinkedList]")
 {
     int size = 4;
     double buffer[size] = {-1, 567, 1114, 7985};
@@ -296,7 +296,7 @@ TEST_CASE("Testing PushFront-method (1)")
     CHECK_THROWS(test.Get(166) );
 }
 
-TEST_CASE("Testing PushFront-method (2)")
+TEST_CASE("Testing PushFront-method (2) [LinkedList]")
 {
     LinkedList<double> test;
 
@@ -320,7 +320,7 @@ TEST_CASE("Testing PushFront-method (2)")
     }
 }
 
-TEST_CASE("Testing SET-method (2)")
+TEST_CASE("Testing SET-method (2) [LinkedList]")
 {
     LinkedList<double> test;
 
@@ -338,6 +338,7 @@ TEST_CASE("Testing SET-method (2)")
     CHECK(test.Get(7) == 798);
 }
 
+/*
 TEST_CASE("Testing SWAP-method")
 {
     int size = 4;
@@ -357,8 +358,9 @@ TEST_CASE("Testing SWAP-method")
     CHECK(test2.Get(2) == 567);
     CHECK(test2.Get(3) == 7985);
 }
+*/
 
-
+/*
 TEST_CASE("Testing RESIZE-method")
 {
     int size = 4;
@@ -389,8 +391,9 @@ TEST_CASE("Testing RESIZE-method")
     //CHECK(test2.GetCapacity() == test1.GetCapacity() );
     //CHECK(test2.GetCapacity() == 4);
 }
+*/
 
-TEST_CASE("Testing resistance")
+TEST_CASE("Testing resistance [LinkedList]")
 {
     LinkedList<double> test;
 
