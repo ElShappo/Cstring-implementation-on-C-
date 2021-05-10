@@ -88,6 +88,18 @@ public:
         //capacity_ = newSize;
     }
 
+    void Resize(size_t len)
+    // it is not allowed to enlarge array this way
+    // len can only be <= than the current length
+    {
+        if (len_ < len)
+            throw DynamicArrayException<T>("IndexOutOfRange");
+        else
+            len_ = len;
+
+
+    }
+
     void Swap(size_t pos1, size_t pos2)
     {
         swap(arr_[pos1], arr_[pos2]);
@@ -175,11 +187,16 @@ public:
         {
             T buffer = arr_[len_-1];
             arr_ = (T*)realloc(arr_, sizeof(T)*(len_-1));
+            --len_;
             return buffer;
         }
     }
 
-    //void Shrink_to_fit
+    T Shrink_to_fit(size_t delta = 1)
+    {
+        if (abs((int)capacity_-(int)len_) > delta)
+            capacity_ = len_;
+    }
 
 private:
 

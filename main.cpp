@@ -126,8 +126,8 @@ int main()
 
         dArr.PushBack(56875);
         dArr.PushBack(346531111);
-        dArr.PopBack();
-        dArr.PopBack();
+        //dArr.PopBack();
+        //dArr.PopBack();
 
         DynamicArray newArr(dArr);
 
@@ -138,7 +138,6 @@ int main()
 
         for (int i=0; i<dArr.GetSize(); ++i)
             cout << dArr.Get(i) << endl;
-
 
         /*
         int container[5] = {100, 101, 102, 103, 104};
