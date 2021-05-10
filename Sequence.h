@@ -10,7 +10,7 @@ public:
     // assign overload
 
     virtual T capacity() = 0;
-    virtual T size() = 0;
+    virtual T len() = 0;
 
     virtual void push_back() = 0;
     virtual T pop_back() = 0;

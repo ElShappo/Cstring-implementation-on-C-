@@ -30,7 +30,7 @@ public:
     DynamicArray(int capacity)
     {
         if (capacity < 0)
-            throw DynamicArrayException("OutOfRange");
+            throw DynamicArrayException<T>("OutOfRange");
         Reserve(capacity);
     }
 
@@ -120,7 +120,7 @@ public:
     void Swap(int pos1, int pos2)
     {
         if (pos1 < 0 || pos2 < 0)
-            throw DynamicArrayException("OutOfRange");
+            throw DynamicArrayException<T>("OutOfRange");
 
         swap(arr_[pos1], arr_[pos2]);
     }

@@ -17,7 +17,7 @@ public:
 
         for (int i=0; i<count; ++i)
         {
-            // cout << "Iteration (" << i << "); size = " << GetSize() << endl;
+            // cout << "Iteration (" << i << "); size = " << GetLen() << endl;
             PushBack(items[i]);
         }
     }
@@ -26,22 +26,22 @@ public:
     {
         // cout << "Copy ctor has been called." << endl;
         /*
-        cout << "List size: " << list.GetSize() << endl;
+        cout << "List size: " << list.GetLen() << endl;
 
-        for (int i=0; i<list.GetSize(); ++i)
+        for (int i=0; i<list.GetLen(); ++i)
             cout << list.Get(i) << endl;
         */
 
-        for (int i=0; i<list.GetSize(); ++i)
+        for (int i=0; i<list.GetLen(); ++i)
             PushBack(list.Get(i));
     }
 
     void Insert(T data, int index)
     {
-        if (index < 0 || index > size_)
+        if (index < 0 || index > len_)
             throw LinkedListException("IndexOutOfRange");
 
-        ++size_;
+        ++len_;
 
         int count = 0;
         Node* buffer = head_;
@@ -65,12 +65,12 @@ public:
         }
     }
 
-    void PushBack(T data) { Insert(data, size_); }
+    void PushBack(T data) { Insert(data, len_); }
     void PushFront(T data) { Insert(data, 0); }
 
     T Get(int index)
     {
-        if (index < 0 || index >= size_)
+        if (index < 0 || index >= len_)
             throw LinkedListException("IndexOutOfRange");
 
         Node* buffer = head_;
@@ -97,7 +97,7 @@ public:
     {
         class LinkedList<T>* newList = new LinkedList(*this);
 
-        for (int i=0; i<list.GetSize(); ++i)
+        for (int i=0; i<list.GetLen(); ++i)
         {
             //cout << list.Get(i) << endl;
             newList->PushBack(list.Get(i));
@@ -113,12 +113,12 @@ public:
 
     T GetLast()
     {
-        return Get(size_-1);
+        return Get(len_-1);
     }
 
-    size_t GetSize()
+    size_t GetLen()
     {
-        return size_;
+        return len_;
     }
 
 private:
@@ -140,7 +140,7 @@ private:
     };
 
     Node* head_ = nullptr;
-    size_t size_ = 0;
+    size_t len_ = 0;
 
 };
 
