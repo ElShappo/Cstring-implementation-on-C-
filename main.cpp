@@ -95,6 +95,13 @@ void PrintData(LinkedList<T> obj)
         cout << obj.Get(i) << endl;
 }
 
+template <class T>
+void Print(T object)
+{
+    for (int i=0; i<object.size(); ++i)
+        cout << "(" << i << "): " << object[i] << endl;
+}
+
 int main()
 {
     try
@@ -102,6 +109,20 @@ int main()
         int size = 4;
         double buffer[size] = {-1, 567, 1114, 7985};
         ListSequence<double> test(buffer, size);
+
+        test.push_back(5);
+        test.push_front(5678);
+
+        //Print(test);
+
+        int size1 = 4;
+        double buffer1[size1] = {2223, 343, 1047, 3064};
+        //ArraySequence<double> newTest(buffer1, size1);
+
+        //newTest.push_back(568);
+        //newTest.push_back(11117);
+
+        //Print(newTest);
 
         /*
         int size = 4;

@@ -160,6 +160,11 @@ public:
     {
         Insert(data, 0);
     }
+    void Append(DynamicArray<T> buffer)
+    {
+        for (int i=0; i<buffer.GetLen(); ++i)
+            PushBack(buffer.Get(i));
+    }
 
     T PopBack()
     {

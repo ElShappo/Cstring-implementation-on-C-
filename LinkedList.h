@@ -143,14 +143,10 @@ public:
         return new LinkedList(items, size);
     }
 
-    class LinkedList<T>* Append(LinkedList<T> list)
+    void Append(LinkedList<T> buffer)
     {
-        class LinkedList<T>* newList = new LinkedList(*this);
-
-        for (int i=0; i<list.GetLen(); ++i)
-            newList->PushBack(list.Get(i));
-
-        return newList;
+        for (int i=0; i<buffer.GetLen(); ++i)
+            PushBack(buffer.Get(i));
     }
 
     T GetFirst()

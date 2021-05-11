@@ -1,18 +1,18 @@
 #ifndef SEQUENCE_H
 #define SEQUENCE_H
 
+typedef int (&LengthAlias)();
+
 template<class T>
 class Sequence
 {
 public:
-
-    Sequence() {}
-
-    virtual T & operator[](int index) = 0;
     // == overload
     // assign overload
+    virtual T & operator[](int index) = 0;
 
     virtual int length() = 0;
+    virtual int size() = 0;
 
     virtual void push_back(T data) = 0;
     virtual void push_front(T data) = 0;

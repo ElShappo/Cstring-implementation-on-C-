@@ -17,6 +17,7 @@ public:
 
     T & operator[](int index) override { return (*list_)[index]; }
     int length() override { return list_->GetLen(); }
+    int size() override { return list_->GetLen(); }
     void push_back(T data) override { list_->PushBack(data); }
     void push_front(T data) override { list_->PushFront(data); }
     T pop_back() override { return list_->PopBack(); }
@@ -24,10 +25,10 @@ public:
     void set(T data, int index) override { list_->Set(data, index); }
     void insert(T data, int index) override { list_->Insert(data, index); }
 
-    T first() { list_.GetFirst(); }
-    T last() {list_.GetLast(); }
-    class LinkedList<T>* append(LinkedList<T> list) {list_.Append(list); }
-    class LinkedList<T>* sublist(int iStart, int iEnd) {list_.GetSubList(iStart, iEnd); }
+    T first() { list_->GetFirst(); }
+    T last() {list_->GetLast(); }
+    void append(LinkedList<T> list) {list_->Append(list); }
+    class LinkedList<T>* sublist(int iStart, int iEnd) {list_->GetSubList(iStart, iEnd); }
 };
 
 #endif // LIST_SEQUENCE_H
