@@ -8,7 +8,7 @@ class LinkedList
 {
 public:
 
-    LinkedList(){}
+    LinkedList() {}
 
     LinkedList(T* items, int count)
     {

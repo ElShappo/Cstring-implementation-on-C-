@@ -5,61 +5,34 @@
 #include "Sequence.h"
 
 template <class T>
-class ArraySequence : public Sequence
+class ArraySequence : public Sequence<T>
 {
 private:
-    DynamicArray array_;
+    DynamicArray<T>* array_;
 
 public:
 
-    ArraySequence(T* items, size_t count)
-    {
-        array_.Resize(count);
-        array_.capacity_ = array_.capacity_; // in this case length equals to size
+    ArraySequence() { array_ = new DynamicArray<T>(); }
+    ArraySequence(T* items, int len) { array_ = new DynamicArray<T>(items, len); }
+    ArraySequence(int capacity) { array_ = new DynamicArray<T>(capacity); }
+    ArraySequence(DynamicArray<T> & dynamicArray) { array_ = new DynamicArray<T>(dynamicArray); }
 
-        for (size_t i=0; i<array_.capacity_; ++i)
-            this->array_.arr_[i] = array_.items[i];
-    }
+    T & operator[](int index) override { return array_[index]; }
+    int length() override { return array_.GetLen(); }
+    void push_back(T data) override { array_.PushBack(data); }
+    void push_front(T data) override { array_.PushFront(data); }
+    T pop_back() override { return array_.PopBack(); }
+    void get(int index) override { array_.Get(index); }
+    void set(T data, int index) override { array_.Set(data, index); }
+    void insert(T data, int index) override { array_.Insert(data, index); }
 
-    ArraySequence(size_t size)
-    {
-        array_.Resize(size);
-    }
+    // UNIQUE METHODS
 
-    ArraySequence(ArraySequence<T> & ArraySequence)
-    {
-        array_.Resize(array_.GetSize());
-        array_.capacity_ = array_.GetLen();
-
-        for (size_t i=0; i<array_.capacity_; ++i)
-            arr_[i] = array_.Get(i);
-    }
-
-    T & operator[](size_t pos)
-    {
-        return array_.Get(pos);
-    }
-
-    T capacity()
-    {
-        return array_.GetCapacity();
-    }
-
-    T size()
-    {
-        return array_.GetSize();
-    }
-
-    void push_back(T data)
-    {
-        array_.
-    }
-
-    T pop_back()
-    {
-
-    }
-
+    int capacity() { return array_.GetCapacity(); }
+    void reserve(int capacity) { array_.Reserve(capacity); }
+    void resize(int len) { array_.Resize(len); }
+    void swap(int pos1, int pos2) { array_.Swap(pos1, pos2); }
+    void shrink_to_fit() { array_.Shrink_to_fit(); }
 };
 
 #endif // ARRAY_SEQUENCE_H

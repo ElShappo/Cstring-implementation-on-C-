@@ -34,13 +34,13 @@ public:
         Reserve(capacity);
     }
 
-    DynamicArray(DynamicArray<T> & DynamicArray)
+    DynamicArray(DynamicArray<T> & dynamicArray)
     {
-        Reserve(DynamicArray.GetCapacity());
-        len_ = DynamicArray.GetLen();
+        Reserve(dynamicArray.GetCapacity());
+        len_ = dynamicArray.GetLen();
 
         for (int i=0; i<len_; ++i)
-            arr_[i] = DynamicArray.Get(i);
+            arr_[i] = dynamicArray.Get(i);
     }
 
     T & operator[](int index)

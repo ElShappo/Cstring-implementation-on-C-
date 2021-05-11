@@ -2,6 +2,7 @@
 #include "DynamicArray.h"
 #include "LinkedList.h"
 
+#include "ArraySequence.h"
 #include "ListSequence.h"
 #include "Sequence.h"
 #include "vendor/catch.hpp"
