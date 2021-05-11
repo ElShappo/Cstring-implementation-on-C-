@@ -1,8 +1,6 @@
 #ifndef SEQUENCE_H
 #define SEQUENCE_H
 
-typedef int (&LengthAlias)();
-
 template<class T>
 class Sequence
 {
@@ -17,7 +15,7 @@ public:
     virtual void push_back(T data) = 0;
     virtual void push_front(T data) = 0;
     virtual T pop_back() = 0;
-    virtual void get(int index) = 0;
+    virtual T get(int index) = 0;
     virtual void set(T data, int index) = 0;
     virtual void insert(T data, int index) = 0;
 

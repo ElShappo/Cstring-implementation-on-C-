@@ -48,6 +48,26 @@ public:
         }
     }
 
+    bool operator ==(LinkedList<T> list)
+    {
+        for (int i=0; i<list.GetLen(); ++i)
+        {
+            if (list.Get(i) != Get(i))
+                return false;
+        }
+        return true;
+    }
+
+    bool operator !=(DynamicArray<T> list)
+    {
+        for (int i=0; i<list.GetLen(); ++i)
+        {
+            if (list.Get(i) == Get(i))
+                return false;
+        }
+        return true;
+    }
+
     void Insert(T data, int index)
     {
         if (index < 0 || index > len_)

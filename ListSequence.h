@@ -21,7 +21,7 @@ public:
     void push_back(T data) override { list_->PushBack(data); }
     void push_front(T data) override { list_->PushFront(data); }
     T pop_back() override { return list_->PopBack(); }
-    void get(int index) override { list_->Get(index); }
+    T get(int index) override { return list_->Get(index); }
     void set(T data, int index) override { list_->Set(data, index); }
     void insert(T data, int index) override { list_->Insert(data, index); }
 
@@ -29,6 +29,8 @@ public:
     T last() {list_->GetLast(); }
     void append(LinkedList<T> list) {list_->Append(list); }
     class LinkedList<T>* sublist(int iStart, int iEnd) {list_->GetSubList(iStart, iEnd); }
+    bool operator ==(LinkedList<T> list) { return (list == list_); }
+    bool operator !=(LinkedList<T> list) { return (list != list_); }
 };
 
 #endif // LIST_SEQUENCE_H

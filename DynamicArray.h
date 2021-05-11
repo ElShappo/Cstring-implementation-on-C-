@@ -1,7 +1,6 @@
 #ifndef DYNAMIC_ARRAY_H
 #define DYNAMIC_ARRAY_H
 
-#include <iostream>
 #include "DynamicArrayException.h"
 
 using namespace std;
@@ -49,6 +48,26 @@ public:
             throw DynamicArrayException<T>("IndexOutOfRange");
 
         return arr_[index];
+    }
+
+    bool operator ==(DynamicArray<T> array)
+    {
+        for (int i=0; i<array.GetLen(); ++i)
+        {
+            if (array.Get(i) != Get(i))
+                return false;
+        }
+        return true;
+    }
+
+    bool operator !=(DynamicArray<T> array)
+    {
+        for (int i=0; i<array.GetLen(); ++i)
+        {
+            if (array.Get(i) == Get(i))
+                return false;
+        }
+        return true;
     }
 
     ~DynamicArray()

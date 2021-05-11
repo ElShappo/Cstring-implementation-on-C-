@@ -5,6 +5,7 @@
 #include "ArraySequence.h"
 #include "ListSequence.h"
 #include "Sequence.h"
+#include "StringArr.h"
 #include "vendor/catch.hpp"
 
 using namespace std;

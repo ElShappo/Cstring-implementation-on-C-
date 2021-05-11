@@ -23,7 +23,7 @@ public:
     void push_back(T data) override { array_->PushBack(data); }
     void push_front(T data) override { array_->PushFront(data); }
     T pop_back() override { return array_->PopBack(); }
-    void get(int index) override { array_->Get(index); }
+    T get(int index) override { return array_->Get(index); }
     void set(T data, int index) override { array_->Set(data, index); }
     void insert(T data, int index) override { array_->Insert(data, index); }
 
@@ -34,6 +34,8 @@ public:
     void resize(int len) { array_->Resize(len); }
     void swap(int pos1, int pos2) { array_->Swap(pos1, pos2); }
     void shrink_to_fit() { array_->Shrink_to_fit(); }
+    bool operator ==(DynamicArray<T> array) { return (array == array_); }
+    bool operator !=(DynamicArray<T> array) { return (array != array_); }
 };
 
 #endif // ARRAY_SEQUENCE_H
