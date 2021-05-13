@@ -70,6 +70,15 @@ public:
         return true;
     }
 
+    bool operator =(const DynamicArray<T> & array)
+    {
+        while (!Empty() )
+            PopBack();
+
+        for (int i=0; i<array.GetLen(); ++i)
+            PushBack(array[i]);
+    }
+
     ~DynamicArray()
     {
         delete[] arr_;
@@ -202,6 +211,13 @@ public:
     {
         if (abs((int)capacity_-(int)len_) > delta)
             capacity_ = len_;
+    }
+
+    bool Empty() const noexcept
+    {
+        if (len_ == 0)
+            return true;
+        return false;
     }
 
 private:
