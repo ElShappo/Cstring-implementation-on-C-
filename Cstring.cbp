@@ -31,23 +31,31 @@
 				<Option output="Cstring" prefix_auto="1" extension_auto="1" />
 				<Option type="1" />
 				<Option compiler="gcc" />
+				<Option parameters="-s -x 100 -r compact" />
 			</Target>
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="DynamicArray.h" />
-		<Unit filename="DynamicArrayException.h" />
-		<Unit filename="LinkedList.h" />
-		<Unit filename="LinkedListException.h" />
-		<Unit filename="Sequence.h" />
-		<Unit filename="main-test.cpp">
-			<Option target="Test" />
-		</Unit>
 		<Unit filename="main.cpp">
 			<Option target="Debug" />
 			<Option target="Release" />
+		</Unit>
+		<Unit filename="source/DynamicArray/DynamicArray.h" />
+		<Unit filename="source/DynamicArray/DynamicArrayException.h" />
+		<Unit filename="source/LinkedList/LinkedList.h" />
+		<Unit filename="source/LinkedList/LinkedListException.h" />
+		<Unit filename="source/Sequence/ArraySequence/ArraySequence.h" />
+		<Unit filename="source/Sequence/ListSequence/ListSequence.h" />
+		<Unit filename="source/Sequence/Sequence.h" />
+		<Unit filename="source/Sequence/StringArr/StringArr.h" />
+		<Unit filename="source/Sequence/StringArr/StringArrException.h" />
+		<Unit filename="tests/TestDynamicArray.cpp">
+			<Option target="Test" />
+		</Unit>
+		<Unit filename="tests/TestLinkedList.cpp">
+			<Option target="Test" />
 		</Unit>
 		<Unit filename="vendor/catch.hpp">
 			<Option target="Test" />

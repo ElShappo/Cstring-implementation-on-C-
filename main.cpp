@@ -1,15 +1,15 @@
 #include <iostream>
-#include "DynamicArray.h"
-#include "LinkedList.h"
 
-#include "ArraySequence.h"
-#include "ListSequence.h"
-#include "Sequence.h"
-#include "StringArr.h"
+#include "source/DynamicArray/DynamicArray.h"
+#include "source/LinkedList/LinkedList.h"
+#include "source/Sequence/ArraySequence/ArraySequence.h"
+
+#include "source/Sequence/ListSequence/ListSequence.h"
+#include "source/Sequence/Sequence.h"
+#include "source/Sequence/StringArr/StringArr.h"
 #include "vendor/catch.hpp"
 
 using namespace std;
-
 
 template <class T>
 class Cstring
