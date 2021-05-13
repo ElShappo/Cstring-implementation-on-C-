@@ -334,10 +334,11 @@
 1619857958 source:c:\users\denis\desktop\cstring\main-test.cpp
 	"vendor/catch.hpp"
 
-1620662888 source:c:\users\shaip\onedrive\desktop\cstring-implementation-on-c-\main-test.cpp
+1620847459 source:c:\users\shaip\onedrive\desktop\cstring-implementation-on-c-\main-test.cpp
 	"vendor/catch.hpp"
 	"DynamicArray.h"
 	"LinkedList.h"
+	"StringArr.h"
 
 1620567125 c:\users\shaip\onedrive\desktop\cstring-implementation-on-c-\vendor\catch.hpp
 	<TargetConditionals.h>
@@ -631,7 +632,7 @@
 	<algorithm>
 	<cassert>
 
-1620770758 c:\users\shaip\onedrive\desktop\cstring-implementation-on-c-\dynamicarray.h
+1620773591 c:\users\shaip\onedrive\desktop\cstring-implementation-on-c-\dynamicarray.h
 	"DynamicArrayException.h"
 
 1620567125 c:\users\shaip\onedrive\desktop\cstring-implementation-on-c-\dynamicarrayexception.h
@@ -643,7 +644,7 @@
 
 1620654813 c:\users\shaip\onedrive\desktop\cstring-implementation-on-c-\linkedlistexception.h
 
-1620767127 source:c:\users\shaip\onedrive\desktop\cstring-implementation-on-c-\main.cpp
+1620773059 source:c:\users\shaip\onedrive\desktop\cstring-implementation-on-c-\main.cpp
 	<iostream>
 	"DynamicArray.h"
 	"LinkedList.h"
@@ -655,16 +656,17 @@
 
 1620770777 c:\users\shaip\onedrive\desktop\cstring-implementation-on-c-\sequence.h
 
-1620771069 c:\users\shaip\onedrive\desktop\cstring-implementation-on-c-\listsequence.h
+1620847394 c:\users\shaip\onedrive\desktop\cstring-implementation-on-c-\listsequence.h
 	"LinkedList.h"
 	"Sequence.h"
 
-1620771052 c:\users\shaip\onedrive\desktop\cstring-implementation-on-c-\arraysequence.h
+1620847828 c:\users\shaip\onedrive\desktop\cstring-implementation-on-c-\arraysequence.h
 	"DynamicArray.h"
 	"Sequence.h"
 
-1620769405 c:\users\shaip\onedrive\desktop\cstring-implementation-on-c-\stringarr.h
+1620847773 c:\users\shaip\onedrive\desktop\cstring-implementation-on-c-\stringarr.h
 	"StringArrException.h"
+	"ArraySequence.h"
 
 1620768319 c:\users\shaip\onedrive\desktop\cstring-implementation-on-c-\stringarrexception.h
 

@@ -3,6 +3,7 @@
 
 #include "DynamicArray.h"
 #include "LinkedList.h"
+#include "StringArr.h"
 
 TEST_CASE("Testing GET-method")
 {
@@ -448,5 +449,88 @@ TEST_CASE("Testing indexing operator [LinkedList]")
     CHECK_THROWS(test[size+1]);
 
     CHECK(test.GetLen() == size+1);
+}
+
+TEST_CASE("Testing substr-method [LinkedList]")
+{
+    LinkedList<double> test;
+    int size = 15;
+
+    for (int i=0; i<size; ++i)
+        test.PushBack(i);
+
+    int left = 3;
+    int right = 5;
+
+    LinkedList<double> buffer(*test.GetSubList(left, right) );
+
+    for (int i=0; i<buffer.GetLen(); ++i)
+    {
+        CHECK(buffer[i] == i+left);
+    }
+
+    left = 0;
+    right = 4;
+
+    /*
+    buffer(*test.GetSubList(left, right) );
+
+    for (int i=0; i<buffer.GetLen(); ++i)
+    {
+        CHECK(buffer[i] == i+left);
+    }
+    */
+
+    test.PushBack(5687);
+    test.PushBack(11567);
+
+    test.PopBack();
+    test.PushBack(11567);
+    test.PopBack();
+
+    for (int i=0; i<size; ++i)
+        CHECK(test[i] == i);
+
+    CHECK(test[size] == 5687);
+    CHECK_THROWS(test[size+1]);
+
+    CHECK(test.GetLen() == size+1);
+}
+
+TEST_CASE("Testing string methods")
+{
+    StringArr test;
+    char buffer[6];
+    char anotherBuffer[2] = {'n', 'n'};
+
+    buffer[0] = 'n'; buffer[1] = 'e'; buffer[2] = 'n'; buffer[3] = 'n'; buffer[4] = 'n'; buffer[5] = '6';
+
+    StringArr newTest(buffer, 6);
+    StringArr check(anotherBuffer, 2);
+
+    test.push_back('h');
+    test.push_back('e');
+    test.push_back('l');
+    test.push_back('l');
+    test.push_back('o');
+
+    CHECK(test[0] == 'h');
+    CHECK(test[1] == 'e');
+    CHECK(test[2] == 'l');
+    CHECK(test[3] == 'l');
+    CHECK(test[4] == 'o');
+
+    test.pop_back();
+
+    StringArr substring(*test.substr(1,2));
+
+    CHECK(substring[0] == 'e');
+    CHECK(substring[1] == 'l');
+
+    CHECK_THROWS(test.substr(0, 5));
+
+    bool boolean = newTest.match(check)[0] == check;
+
+    CHECK(boolean);
 }
 

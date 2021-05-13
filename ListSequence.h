@@ -29,8 +29,8 @@ public:
     T last() {list_->GetLast(); }
     void append(LinkedList<T> list) {list_->Append(list); }
     class LinkedList<T>* sublist(int iStart, int iEnd) {list_->GetSubList(iStart, iEnd); }
-    bool operator ==(LinkedList<T> list) { return (list == list_); }
-    bool operator !=(LinkedList<T> list) { return (list != list_); }
+    bool operator ==(const LinkedList<T> & list) { return (list == list_); }
+    bool operator !=(const LinkedList<T> & list) { return (list != list_); }
 };
 
 #endif // LIST_SEQUENCE_H

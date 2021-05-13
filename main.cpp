@@ -118,6 +118,10 @@ int main()
 
         int size1 = 4;
         double buffer1[size1] = {2223, 343, 1047, 3064};
+
+        StringArr str;
+
+        str.push_back(5);
         //ArraySequence<double> newTest(buffer1, size1);
 
         //newTest.push_back(568);

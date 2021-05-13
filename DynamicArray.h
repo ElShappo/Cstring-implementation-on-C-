@@ -198,7 +198,7 @@ public:
         }
     }
 
-    T Shrink_to_fit(int delta = 1)
+    void Shrink_to_fit(int delta = 1)
     {
         if (abs((int)capacity_-(int)len_) > delta)
             capacity_ = len_;
