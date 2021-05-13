@@ -50,7 +50,7 @@ public:
         return arr_[index];
     }
 
-    bool operator ==(DynamicArray<T> array)
+    bool operator ==(const DynamicArray<T> & array) const
     {
         for (int i=0; i<array.GetLen(); ++i)
         {
@@ -60,7 +60,7 @@ public:
         return true;
     }
 
-    bool operator !=(DynamicArray<T> array)
+    bool operator !=(const DynamicArray<T> & array) const
     {
         for (int i=0; i<array.GetLen(); ++i)
         {
@@ -78,7 +78,7 @@ public:
     // ----------------------
 
 
-    T Get(int index)
+    T Get(int index) const
     {
         if (index >= len_ || index < 0)
         {
@@ -88,12 +88,12 @@ public:
         return arr_[index];
     }
 
-    int GetCapacity()
+    int GetCapacity() const noexcept
     {
         return capacity_;
     }
 
-    int GetLen()
+    int GetLen() const noexcept
     {
         return len_;
     }

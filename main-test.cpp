@@ -226,6 +226,25 @@ TEST_CASE("Testing indexing operator")
     CHECK(test.GetCapacity() == size+2);
 }
 
+TEST_CASE("Testing \"==\" operator")
+{
+    DynamicArray<double> test;
+
+    test.PushBack(678);
+    test.PushBack(4564);
+    test.PushBack(15226);
+    test.PushBack(1);
+
+    DynamicArray<double> cmp(5);
+
+    for (int i=0; i<4; ++i)
+    {
+        cmp.PushBack(test[i]);
+    }
+
+    CHECK(test == cmp);
+}
+
 /** -------------------- **/
 
 TEST_CASE("Testing GET-method [LinkedList]")
@@ -497,6 +516,8 @@ TEST_CASE("Testing substr-method [LinkedList]")
     CHECK(test.GetLen() == size+1);
 }
 
+
+/*
 TEST_CASE("Testing string methods")
 {
     StringArr test;
@@ -533,4 +554,5 @@ TEST_CASE("Testing string methods")
 
     CHECK(boolean);
 }
+*/
 
