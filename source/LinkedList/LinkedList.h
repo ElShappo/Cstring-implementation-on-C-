@@ -2,6 +2,7 @@
 #define LINKED_LIST_H
 
 #include "LinkedListException.h"
+#include "../DynamicArray/DynamicArray.h"
 
 template <class T>
 class LinkedList
@@ -58,11 +59,11 @@ public:
         return true;
     }
 
-    bool operator !=(DynamicArray<T> list)
+    bool operator !=(DynamicArray<T> array)
     {
-        for (int i=0; i<list.GetLen(); ++i)
+        for (int i=0; i<array.GetLen(); ++i)
         {
-            if (list.Get(i) == Get(i))
+            if (array.Get(i) == Get(i))
                 return false;
         }
         return true;

@@ -672,11 +672,9 @@
 
 1620912225 source:c:\users\shaip\onedrive\desktop\cstring-implementation-on-c-\tests\testlinkedlist.cpp
 
-1620912381 source:c:\users\shaip\onedrive\desktop\cstring-implementation-on-c-\tests\testdynamicarray.cpp
+1621018869 source:c:\users\shaip\onedrive\desktop\cstring-implementation-on-c-\tests\testdynamicarray.cpp
 	"../vendor/catch.hpp"
-	"../DynamicArray.h"
-	"../LinkedList.h"
-	"../StringArr.h"
+	"../source/DynamicArray/DynamicArray.h"
 
 1621018685 c:\users\shaip\onedrive\desktop\cstring-implementation-on-c-\source\dynamicarray\dynamicarray.h
 	"DynamicArrayException.h"
