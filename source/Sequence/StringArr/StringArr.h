@@ -99,7 +99,6 @@ public:
 
         return strings;
     }
-
 };
 
 #endif // STRING_ARR_H
