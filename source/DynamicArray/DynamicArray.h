@@ -52,6 +52,9 @@ public:
 
     bool operator ==(const DynamicArray<T> & array) const
     {
+        if (array.GetLen() != GetLen() )
+            return false;
+
         for (int i=0; i<array.GetLen(); ++i)
         {
             if (array.Get(i) != Get(i))
@@ -62,6 +65,9 @@ public:
 
     bool operator !=(const DynamicArray<T> & array) const
     {
+        if (array.GetLen() != GetLen() )
+            return true;
+
         for (int i=0; i<array.GetLen(); ++i)
         {
             if (array.Get(i) == Get(i))

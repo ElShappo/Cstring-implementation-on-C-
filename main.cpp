@@ -107,6 +107,7 @@ int main()
 {
     try
     {
+        /*
         int size = 4;
         double buffer[size] = {-1, 567, 1114, 7985};
         ListSequence<double> test(buffer, size);
@@ -126,7 +127,24 @@ int main()
 
         //newTest.push_back(568);
         //newTest.push_back(11117);
+        */
 
+        DynamicArray<double> test;
+
+        test.PushBack(678);
+        test.PushBack(4564);
+        test.PushBack(15226);
+        test.PushBack(1);
+
+        DynamicArray<double> cmp(test);
+
+        cmp.PopBack();
+        cmp.PopBack();
+
+        for (int i=0; i<2; ++i)
+            cout << cmp[i] << endl;
+
+        cout << (cmp != test) << endl;
         //Print(newTest);
 
         /*

@@ -51,6 +51,9 @@ public:
 
     bool operator ==(LinkedList<T> list)
     {
+        if (list.GetLen() != GetLen() )
+            return false;
+
         for (int i=0; i<list.GetLen(); ++i)
         {
             if (list.Get(i) != Get(i))
@@ -59,11 +62,14 @@ public:
         return true;
     }
 
-    bool operator !=(DynamicArray<T> array)
+    bool operator !=(LinkedList<T> list)
     {
-        for (int i=0; i<array.GetLen(); ++i)
+        if (list.GetLen() != GetLen() )
+            return true;
+
+        for (int i=0; i<list.GetLen(); ++i)
         {
-            if (array.Get(i) == Get(i))
+            if (list.Get(i) == Get(i))
                 return false;
         }
         return true;

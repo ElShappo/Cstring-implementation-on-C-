@@ -18,9 +18,6 @@ public:
     virtual T get(int index) = 0;
     virtual void set(T data, int index) = 0;
     virtual void insert(T data, int index) = 0;
-
-    // virtual void reserve() = 0;
-    //virtual void resize() = 0;
 };
 
 

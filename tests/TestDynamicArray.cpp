@@ -237,10 +237,33 @@ TEST_CASE("Testing \"==\" operator")
 
     DynamicArray<double> cmp(5);
 
+    CHECK(test.GetCapacity() == 5);
+    CHECK(test.GetLen() == 0);
+
     for (int i=0; i<4; ++i)
     {
         cmp.PushBack(test[i]);
     }
+    CHECK(test.GetCapacity() == 5);
+    CHECK(test.GetLen() == 4);
 
     CHECK(test == cmp);
 }
+
+TEST_CASE("Testing \"!=\" operator")
+{
+    DynamicArray<double> test;
+
+    test.PushBack(678);
+    test.PushBack(4564);
+    test.PushBack(15226);
+    test.PushBack(1);
+
+    DynamicArray<double> cmp(test);
+
+    cmp.PopBack();
+    cmp.PopBack();
+
+    CHECK(test != cmp);
+}
+
