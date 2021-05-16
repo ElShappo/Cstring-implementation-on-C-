@@ -49,7 +49,7 @@ public:
         }
     }
 
-    bool operator ==(LinkedList<T> list)
+    bool operator ==(const LinkedList<T> & list) const
     {
         if (list.GetLen() != GetLen() )
             return false;
@@ -62,7 +62,7 @@ public:
         return true;
     }
 
-    bool operator !=(LinkedList<T> list)
+    bool operator !=(const LinkedList<T> list) const
     {
         if (list.GetLen() != GetLen() )
             return true;
@@ -73,6 +73,15 @@ public:
                 return false;
         }
         return true;
+    }
+
+    void operator =(DynamicArray<T> & list)
+    {
+        while (!Empty() )
+            PopBack();
+
+        for (int i=0; i<list.GetLen(); ++i)
+            PushBack(list[i]);
     }
 
     void Insert(T data, int index)
@@ -189,6 +198,13 @@ public:
     int GetLen()
     {
         return len_;
+    }
+
+    bool Empty() const noexcept
+    {
+        if (len_ == 0)
+            return true;
+        return false;
     }
 
 private:

@@ -1,9 +1,7 @@
 #define CATCH_CONFIG_MAIN
 
 #include "../vendor/catch.hpp"
-
 #include "../source/DynamicArray/DynamicArray.h"
-//#include "../StringArr.h"
 
 TEST_CASE("Testing GET-method")
 {

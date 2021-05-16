@@ -1,6 +1,6 @@
 #include "../vendor/catch.hpp"
-
 #include "../source/LinkedList/LinkedList.h"
+#include "../source/Sequence/StringArr/StringArr.h"
 
 TEST_CASE("Testing GET-method [LinkedList]")
 {
@@ -246,15 +246,6 @@ TEST_CASE("Testing substr-method [LinkedList]")
     left = 0;
     right = 4;
 
-    /*
-    buffer(*test.GetSubList(left, right) );
-
-    for (int i=0; i<buffer.GetLen(); ++i)
-    {
-        CHECK(buffer[i] == i+left);
-    }
-    */
-
     test.PushBack(5687);
     test.PushBack(11567);
 
@@ -271,6 +262,27 @@ TEST_CASE("Testing substr-method [LinkedList]")
     CHECK(test.GetLen() == size+1);
 }
 
+TEST_CASE("Testing string methods")
+{
+    StringArr test(5);
+
+    test.push_back('h');
+    test.push_back('e');
+    test.push_back('l');
+    test.push_back('l');
+    test.push_back('o');
+
+    StringArr cmp(test);
+
+    CHECK( (test == cmp) );
+
+    test.pop_back();
+    test.pop_back();
+
+    cmp = test;
+
+    CHECK( (cmp != test) );
+}
 
 /*
 TEST_CASE("Testing string methods")

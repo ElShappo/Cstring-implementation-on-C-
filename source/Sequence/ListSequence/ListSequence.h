@@ -4,8 +4,8 @@
 #include "../../LinkedList/LinkedList.h"
 #include "../Sequence.h"
 
-template<class T>
-class ListSequence : public Sequence<T>
+template<class T, template<typename> typename C = LinkedList>
+class ListSequence : public Sequence<T, C>
 {
 private:
     LinkedList<T>* list_;
@@ -16,6 +16,10 @@ public:
     ListSequence(ListSequence<T> & list) { list_ = new LinkedList<T>(list); }
 
     T & operator[](int index) override { return (*list_)[index]; }
+    bool operator ==(const LinkedList<T> & list) const { return (list == *list_); }
+    bool operator !=(const LinkedList<T> & list) const { return (list != *list_); }
+    void operator =(LinkedList<T> & list) { *list_ = list; }
+
     int length() override { return list_->GetLen(); }
     int size() override { return list_->GetLen(); }
     void push_back(T data) override { list_->PushBack(data); }
@@ -24,13 +28,12 @@ public:
     T get(int index) override { return list_->Get(index); }
     void set(T data, int index) override { list_->Set(data, index); }
     void insert(T data, int index) override { list_->Insert(data, index); }
+    bool empty() override { return list_->Empty(); }
 
     T first() { list_->GetFirst(); }
     T last() {list_->GetLast(); }
     void append(LinkedList<T> list) {list_->Append(list); }
     class LinkedList<T>* sublist(int iStart, int iEnd) {list_->GetSubList(iStart, iEnd); }
-    bool operator ==(const LinkedList<T> & list) { return (list == list_); }
-    bool operator !=(const LinkedList<T> & list) { return (list != list_); }
 };
 
 #endif // LIST_SEQUENCE_H

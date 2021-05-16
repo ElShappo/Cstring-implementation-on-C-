@@ -4,53 +4,34 @@
 #include "StringArrException.h"
 #include "../ArraySequence/ArraySequence.h"
 
-class StringArr
+template <template<typename> typename C = DynamicArray>
+class StringArr : public ArraySequence<char, DynamicArray>
 {
-private:
-    ArraySequence<char>* string_;
-
 public:
-
-    StringArr() { string_ = new ArraySequence<char>(); }
-    StringArr(char* items, int len) { string_ = new ArraySequence<char>(items, len); }
-    StringArr(int capacity) { string_ = new ArraySequence<char>(capacity); }
-    StringArr(ArraySequence<char> & arraySequence) { string_ = new ArraySequence<char>(arraySequence); }
-
-    char & operator[](int index) { return (*string_)[index]; }
-    int length() { return string_->size(); }
-    int size() { return string_->size(); }
-    void push_back(char data) { string_->push_back(data); }
-    void push_front(char data) { string_->push_front(data); }
-    char pop_back() { return string_->pop_back(); }
-    char get(int index) { return string_->get(index); }
-    void set(char data, int index) { string_->set(data, index); }
-    void insert(char data, int index) { string_->insert(data, index); }
-
-    int capacity() { return string_->capacity(); }
-    void reserve(int capacity) { string_->reserve(capacity); }
-    void resize(int len) { string_->resize(len); }
-    void swap(int pos1, int pos2) { string_->swap(pos1, pos2); }
-    void shrink_to_fit() { string_->shrink_to_fit(); }
-
-    bool operator ==(StringArr array)
+    StringArr()
+    : ArraySequence()
     {
-        for (int i=0; i<array.size(); ++i)
-        {
-            if (array.get(i) != get(i))
-                return false;
-        }
-        return true;
+
+    }
+    StringArr(char* items, int len)
+    : ArraySequence(items, len)
+    {
+
+    }
+    StringArr(int capacity)
+    : ArraySequence(capacity)
+    {
+
+    }
+    StringArr(DynamicArray<char> & dynamicArray)
+    : ArraySequence(dynamicArray)
+    {
+
     }
 
-    bool operator !=(StringArr array)
-    {
-        for (int i=0; i<array.size(); ++i)
-        {
-            if (array.get(i) == get(i))
-                return false;
-        }
-        return true;
-    }
+    bool operator ==(const StringArr & array) const { return (*array.array_ == *array_); }
+    bool operator !=(const StringArr & array) const { return (*array.array_ != *array_); }
+    void operator =(StringArr & array) { *array_ = *array.array_; }
 
     StringArr* substr(int iStart, int iEnd)
     {

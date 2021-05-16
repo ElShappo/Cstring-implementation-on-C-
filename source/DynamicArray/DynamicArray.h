@@ -76,7 +76,7 @@ public:
         return true;
     }
 
-    void operator =(const DynamicArray<T> & array)
+    void operator =(DynamicArray<T> & array)
     {
         while (!Empty() )
             PopBack();
